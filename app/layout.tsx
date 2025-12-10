@@ -9,7 +9,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "OAPAS - Portal de Pagos en Línea",
+  title: "JUMAPAC - Portal de Pagos en Línea",
   description: "Sistema de pagos en línea del Organismo Operador de Agua Potable",
   generator: "v0.app",
   icons: {

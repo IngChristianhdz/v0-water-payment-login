@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Droplets, Lock, Mail, AlertCircle } from "lucide-react"
+import { Lock, Mail, AlertCircle } from "lucide-react"
+import Image from "next/image"
 
 export function LoginPage() {
   const { login } = useAuth()
@@ -42,12 +43,8 @@ export function LoginPage() {
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-(--color-primary) to-(--color-primary-dark) p-12 flex-col justify-between text-white">
         <div>
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-              <Droplets className="w-10 h-10 text-white" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold">OAPAS</h1>
-              <p className="text-sm text-white/80">Organismo Operador</p>
+            <div className="relative w-48 h-20">
+              <Image src="/logo-jumapac.png" alt="JUMAPAC Logo" fill className="object-contain" priority />
             </div>
           </div>
 
@@ -87,14 +84,9 @@ export function LoginPage() {
       {/* Panel derecho - Formulario de login */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-surface">
         <div className="w-full max-w-md">
-          {/* Logo móvil */}
           <div className="lg:hidden flex items-center justify-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-(--color-primary) rounded-xl flex items-center justify-center">
-              <Droplets className="w-7 h-7 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-(--color-text)">OAPAS</h1>
-              <p className="text-sm text-(--color-text-light)">Portal de Pagos</p>
+            <div className="relative w-40 h-16">
+              <Image src="/logo-jumapac.png" alt="JUMAPAC Logo" fill className="object-contain" priority />
             </div>
           </div>
 

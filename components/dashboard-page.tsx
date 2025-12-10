@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useAuth } from "@/lib/auth-context"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Image from "next/image"
 import {
   Droplets,
   CreditCard,
@@ -42,12 +43,8 @@ export function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-(--color-primary) rounded-lg flex items-center justify-center">
-                <Droplets className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-lg font-bold text-(--color-text)">OAPAS</h1>
-                <p className="text-xs text-(--color-text-light)">Portal de Pagos</p>
+              <div className="relative w-32 h-10">
+                <Image src="/logo-jumapac.png" alt="JUMAPAC Logo" fill className="object-contain" priority />
               </div>
             </div>
 
