@@ -2,15 +2,15 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { Toaster } from "@/components/ui/toaster"
 import "./globals.css"
-import { AuthProvider } from "@/lib/auth-context"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "JUMAPAC - Portal de Pagos en Línea",
-  description: "Sistema de pagos en línea del Organismo Operador de Agua Potable",
+  title: "AguaNet - Sistema de Pagos",
+  description: "Gestiona y paga tus cuentas de agua en línea",
   generator: "v0.app",
   icons: {
     icon: [
@@ -39,7 +39,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`font-sans antialiased`}>
-        <AuthProvider>{children}</AuthProvider>
+        {children}
+        <Toaster />
         <Analytics />
       </body>
     </html>
