@@ -10,57 +10,73 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Droplet } from "lucide-react"
 
 interface LoginFormProps {
-  onLogin: (email: string) => void
+  onLogin: () => void
 }
 
 export function LoginForm({ onLogin }: LoginFormProps) {
   const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (email && email.includes("@")) {
-      onLogin(email)
+    // Simulación de login - en producción validar credenciales
+    if (email && password) {
+      onLogin()
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center space-y-4">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary">
-            <Droplet className="h-10 w-10 text-primary-foreground" />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-accent/5 p-4">
+      <Card className="w-full max-w-md shadow-xl">
+        <CardHeader className="space-y-4 text-center pb-8">
+          <div className="mx-auto w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
+            <Droplet className="w-8 h-8 text-primary-foreground" />
           </div>
           <div>
-            <CardTitle className="text-2xl font-semibold text-balance">Sistema de Pagos AguaNet</CardTitle>
-            <CardDescription className="mt-2">
-              Ingresa tu correo electrónico para gestionar tus cuentas de agua
-            </CardDescription>
+            <CardTitle className="text-2xl font-bold text-balance">Sistema de Gestión de Agua</CardTitle>
+            <CardDescription className="text-base mt-2">Ingresa tus credenciales para acceder</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
-              <Label htmlFor="email">Correo Electrónico</Label>
+              <Label htmlFor="email" className="text-sm font-medium">
+                Correo electrónico
+              </Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="tu@email.com"
+                placeholder="usuario@ejemplo.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="h-11"
               />
             </div>
-            <Button type="submit" className="w-full" size="lg">
-              Acceder
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-sm font-medium">
+                Contraseña
+              </Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="h-11"
+              />
+            </div>
+            <Button type="submit" className="w-full h-11 text-base font-medium" size="lg">
+              Iniciar Sesión
             </Button>
-          </form>
-
-          <div className="mt-6 rounded-lg bg-muted p-4">
-            <p className="text-sm text-muted-foreground text-pretty">
-              <strong className="text-foreground">Nota:</strong> Un correo puede estar vinculado a múltiples cuentas de
-              diferentes domicilios
+            <p className="text-center text-sm text-muted-foreground">
+              ¿Olvidaste tu contraseña?{" "}
+              <a href="#" className="text-primary hover:underline font-medium">
+                Recuperar acceso
+              </a>
             </p>
-          </div>
+          </form>
         </CardContent>
       </Card>
     </div>
